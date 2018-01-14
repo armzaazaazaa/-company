@@ -32,6 +32,7 @@ class CompanyController extends Controller
     {
 
         $branch = Company::where('id', $id)->first();
+
         return view('company.edit')
             ->with('branch', $branch);
     }
@@ -39,10 +40,12 @@ class CompanyController extends Controller
 
     public function postEdit(Request $request, $id)
     {
+
         $form = $request->get('employee');
         $branchEdit = Company::where('id', $id)->first();
         $branchEdit->fill($form);
         $branchEdit->save();
+
         return redirect('/admin/company');
     }
 
