@@ -15,4 +15,9 @@
     return view('welcome');
 });*/
 
-Route::get('/admin/company', "TypeController@index");
+Route::get('/admin/company', "CompanyController@index");
+Route::get('/admin/company/create', "CompanyController@create");
+Route::post('/admin/company/create', "CompanyController@postCreate");
+Route::get('/admin/company/{id}/edit', "CompanyController@edit");
+Route::post('/admin/company/{id}/edit', "CompanyController@postEdit");
+Route::post('/admin/company/{id}/delete', "CompanyController@postDelete");
